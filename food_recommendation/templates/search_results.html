@@ -1,0 +1,15 @@
+<h1>검색 결과</h1>
+
+<ul>
+    {% for food in foods %}
+    <li>
+        <strong>{{ food.food_name }}</strong> - {{ food.restaurant_name }}
+        <br>도시: {{ food.region }}
+        <br>설명: {{ food.description }}
+    </li>
+    {% empty %}
+    <li>검색 결과가 없습니다.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'food_search' %}">다시 검색</a>

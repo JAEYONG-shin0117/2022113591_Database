@@ -1,0 +1,51 @@
+<form method="get" action="{% url 'search' %}" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    <div style="margin-bottom: 15px;">
+        <label for="country" style="font-weight: bold;">Select Country</label>
+        {{ form.country }}  <!-- 나라 선택 -->
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="city" style="font-weight: bold;">Select City</label>
+        {{ form.city }}  <!-- 도시 선택 -->
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="food_type" style="font-weight: bold;">Select Food Type</label>
+        {{ form.food_type }}  <!-- 음식 종류 선택 -->
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label for="allergy" style="font-weight: bold;">Select Allergy</label>
+        {{ form.allergy }}  <!-- 알레르기 선택 -->
+    </div>
+    <div>
+        <button type="submit" style="background-color: #f78c42; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">SEARCH</button>
+    </div>
+</form>
+
+{% if foods %}
+    <h3 style="text-align: center; margin-top: 40px;">Food List</h3>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead style="background-color: #f78c42; color: white;">
+            <tr>
+                <th style="padding: 10px; text-align: left;">Food Name</th>
+                <th style="padding: 10px; text-align: left;">Region</th>
+                <th style="padding: 10px; text-align: left;">Description</th>
+                <th style="padding: 10px; text-align: left;">Restaurant Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for food in foods %}
+                <tr>
+                    <td style="padding: 10px; border-top: 1px solid #ddd;">{{ food.food_name }}</td>
+                    <td style="padding: 10px; border-top: 1px solid #ddd;">{{ food.city.city_name }}</td>
+                    <td style="padding: 10px; border-top: 1px solid #ddd;">{{ food.description }}</td>
+                    <td style="padding: 10px; border-top: 1px solid #ddd;">{{ food.restaurant_name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p style="text-align: center; margin-top: 20px; font-size: 18px;">No foods found with the selected criteria.</p>  <!-- 검색된 음식이 없을 경우 메시지 -->
+{% endif %}
+<script type="text/javascript">
+    // country 선택시 자동으로 도시 업데이트를 제거하고, 수동으로 선택하는 방식으로 변경
+    // (더 이상 fetch를 사용해 도시 목록을 자동으로 불러오지 않습니다)
+</script>

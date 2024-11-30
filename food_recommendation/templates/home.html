@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommendation</title>
+
+    <!-- static 태그를 로드 -->
+    {% load static %}
+
+    <style>
+        /* 전체적인 레이아웃과 배경 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f0f8ff, #ffecb3); /* 부드러운 그라디언트 배경 */
+            color: #333;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: #ff8c00; /* 오렌지 색상 */
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* 제목과 부제목 스타일 */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        /* 섹션 스타일 */
+        section {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        /* 섹션 제목 */
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* 폼 스타일 */
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 버튼 스타일 */
+        button {
+            background-color: #ff8c00; /* 오렌지 색상 */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* 버튼 호버 효과 */
+        button:hover {
+            background-color: #ff7043; /* 버튼 hover 시 색상 변경 */
+            transform: translateY(-3px); /* 클릭 시 살짝 올라가는 효과 */
+        }
+
+        /* 푸터 스타일 */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Food Recommendation</h1>
+        <p>We can help you find your best restaurant</p>
+    </header>
+
+    <section>
+        <h2>Discover the Best Foods from Around the World</h2>
+        <p>Search for delicious dishes based on your location, allergies, and food preferences!</p>
+
+        <!-- 검색 폼 -->
+        <form method="get" action="{% url 'search' %}">
+            <!-- GO 버튼 -->
+            <button type="submit">GO</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Food Recommendation, All rights reserved.</p>
+    </footer>
+</body>
+</html>
